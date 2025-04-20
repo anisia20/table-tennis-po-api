@@ -5,7 +5,61 @@
 --------------------------------------------------------------------------------
 
 ## 프로젝트 구조
+```mermaid
+erDiagram
+    USER {
+        BIGINT    user_seq PK
+        VARCHAR   email
+        VARCHAR   company_name
+        DATETIME  created_date
+        DATETIME  updated_date
+    }
+    COMPANY {
+        BIGINT    company_seq PK
+        VARCHAR   company_name
+        DATETIME  created_date
+        DATETIME  updated_date
+    }
+    SEND_INFO {
+        BIGINT    send_info_seq PK
+        BIGINT    user_seq FK
+        VARCHAR   base_id
+        INT       send_count
+        INT       limit_count
+        DATETIME  created_date
+        DATETIME  updated_date
+    }
+    AIRTABLE_SEND_REQUEST {
+        BIGINT    request_seq PK
+        VARCHAR   key_info
+        INT       status
+        TEXT      data_json
+        DATETIME  created_date
+        DATETIME  updated_date
+    }
+    AIRTABLE_MAPPING {
+        BIGINT    mapping_seq PK
+        VARCHAR   base_id
+        VARCHAR   table_id
+        VARCHAR   record_id
+        VARCHAR   key_info
+        CHAR(1)   use_yn
+        DATETIME  created_date
+        DATETIME  updated_date
+    }
+    AIRTABLE_FIELD_INFO {
+        BIGINT    field_info_seq PK
+        VARCHAR   base_id
+        VARCHAR   table_id
+        VARCHAR   field_name
+        CHAR(1)   is_key
+        CHAR(1)   use_yn
+        DATETIME  created_date
+        DATETIME  updated_date
+    }
 
+    USER ||--o{ SEND_INFO       : "1-to-many"
+```
 table-tenis-po-api  
 ├── docker  
 │   └── docker-compose.yaml  
@@ -173,9 +227,3 @@ Swagger 설정은 SwaggerConfig 클래스를 통해 이루어지며, API 문서�
 
 - 이 프로젝트는 별도의 라이선스가 명시되지 않은 경우, 내부 사용 목적에 따라 자유롭게 수정/배포가 가능합니다.
 - 상업적 이용 또는 재배포 시 저작권 관련 사항을 반드시 확인하시기 바랍니다.
-
---------------------------------------------------------------------------------
-
-## 문의사항
-
-프로젝트 관련 문의가 있으면 해당 레포지토리 이슈를 통해 문의하시거나, 팀 내에 공유된 연락 채널을 통해 연락해 주세요.
