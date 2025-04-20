@@ -3,8 +3,7 @@
 이 프로젝트는 Spring Boot를 기반으로 하며, PostgreSQL 데이터베이스를 Docker Compose로 손쉽게 구성할 수 있도록 예시를 제공합니다. 또한 Swagger를 통해 API 문서화를 진행할 수 있습니다.
 
 --------------------------------------------------------------------------------
-
-## 프로젝트 구조
+## ERD
 ```mermaid
 erDiagram
     USER {
@@ -60,6 +59,8 @@ erDiagram
 
     USER ||--o{ SEND_INFO       : "1-to-many"
 ```
+
+## 프로젝트 구조
 table-tenis-po-api  
 ├── docker  
 │   └── docker-compose.yaml  
