@@ -1,21 +1,17 @@
 package com.gomdoc.ttspo.repository;
 
-import com.gomdoc.ttspo.model.entity.User;
+import com.gomdoc.ttspo.model.entity.AirtableFieldInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
 
 /**
  * description    :
  * packageName    : com.gomdoc.ttspo.repository
- * fileName       : UserRepository
+ * fileName       : AirtableFieldInfoRepository
  * author         : cho
- * date           : 2025. 3. 14.
+ * date           : 2025. 4. 20.
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2025. 3. 14.        cho       최초 생성
+ * 2025. 4. 20.        cho       최초 생성
  */
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {}
+public interface AirtableFieldInfoRepository extends JpaRepository<AirtableFieldInfo, Long> {}
