@@ -1,7 +1,15 @@
 package com.gomdoc.ttspo.repository;
 
+import com.gomdoc.ttspo.model.dto.SendInfoResponseDTO;
+import com.gomdoc.ttspo.model.entity.QSendInfo;
+import com.gomdoc.ttspo.model.entity.QUser;
+import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * description    :
@@ -22,10 +30,10 @@ public class SendInfoRepositoryImpl implements SendInfoRepositoryCustom {
     private final QUser u      = QUser.user;
 
     @Override
-    public List<SendInfoDto> searchByCriteria(String baseId, Integer minCount) {
+    public List<SendInfoResponseDTO> searchByCriteria(String baseId, Integer minCount) {
         return queryFactory
                 .select(Projections.constructor(
-                        SendInfoDto.class,
+                        SendInfoResponseDTO.class,
                         si.sendInfoSeq,
                         si.baseId,
                         si.sendCount,
@@ -33,7 +41,8 @@ public class SendInfoRepositoryImpl implements SendInfoRepositoryCustom {
                         u.email.as("userEmail")
                 ))
                 .from(si)
-                .leftJoin(si.user, u).fetchJoin()
+                .leftJoin(si.user, u)
+//                .fetchJoin()
                 .where(
                         baseIdEq(baseId),
                         minSendCount(minCount)

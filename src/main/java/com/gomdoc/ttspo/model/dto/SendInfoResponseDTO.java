@@ -24,10 +24,11 @@ import java.time.LocalDateTime;
 @Builder
 public class SendInfoResponseDTO {
     private Long sendInfoSeq;
-    private Long userSeq;
+//    private Long userSeq;
     private String baseId;
     private Integer sendCount;
     private Integer limitCount;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
+    private String userEmail;
+//    private LocalDateTime createdDate;
+//    private LocalDateTime updatedDate;
 }

@@ -1,5 +1,10 @@
 package com.gomdoc.ttspo.repository;
 
+import com.gomdoc.ttspo.model.dto.SendInfoResponseDTO;
+import com.gomdoc.ttspo.model.entity.SendInfo;
+
+import java.util.List;
+
 /**
  * description    :
  * packageName    : com.gomdoc.ttspo.repository
@@ -12,5 +17,5 @@ package com.gomdoc.ttspo.repository;
  * 2025. 4. 20.        cho       최초 생성
  */
 public interface SendInfoRepositoryCustom {
-    List<SendInfoDto> searchByCriteria(String baseId, Integer minCount);
+    List<SendInfoResponseDTO> searchByCriteria(String baseId, Integer minCount);
 }
