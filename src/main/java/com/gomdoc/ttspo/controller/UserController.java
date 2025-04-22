@@ -30,7 +30,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
